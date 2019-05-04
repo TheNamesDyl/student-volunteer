@@ -1,1 +1,1 @@
-Student Volunter
+Student Volunteer
