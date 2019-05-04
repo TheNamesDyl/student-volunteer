@@ -7,6 +7,7 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
+import InputBase from "@material-ui/core/InputBase";
 
 const styles = {
   root: {
@@ -37,6 +38,14 @@ function Uppernavbar(props) {
           <Typography variant="h6" color="inherit" className={classes.grow}>
             News
           </Typography>
+          <InputBase
+            style={{ marginRight: "70%" }}
+            placeholder="Search…"
+            classes={{
+              root: classes.inputRoot,
+              input: classes.inputInput
+            }}
+          />
           <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
