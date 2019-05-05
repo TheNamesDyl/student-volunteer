@@ -18,6 +18,7 @@ const StyledFlexRowOne = styled.div`
 const StyledFlexRowTwo = styled.div`
   display: flex;
   flex-direction: column;
+  padding-left: 30px;
   width: 68%;
 `;
 
@@ -29,9 +30,20 @@ const StyledFlexRowThree = styled.div`
   width: 20%;
 `;
 
+const StyledImageFlexRowThree = styled.div`
+  display: flex;
+  flex-direction: row;
+  width: 68%;
+`;
+
 const StyledFlexRowWrapper = styled.div`
   display: flex;
   flex-direction: row;
+`;
+
+const StyledImageOne = styled.img`
+  height: 200px !important;
+  width: 430px !important;
 `;
 
 const StyledPopover = styled(Popover)``;
@@ -43,5 +55,7 @@ export {
   StyledFlexRowTwo,
   StyledFlexRowThree,
   StyledFlexRowWrapper,
-  StyledPopover
+  StyledPopover,
+  StyledImageFlexRowThree,
+  StyledImageOne
 };

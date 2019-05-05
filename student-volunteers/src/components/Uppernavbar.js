@@ -36,7 +36,7 @@ function Uppernavbar(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" color="inherit" className={classes.grow}>
-            News
+            Tech Match
           </Typography>
           <InputBase
             style={{ marginRight: "70%" }}

@@ -8,7 +8,9 @@ import {
   StyledFlexRowTwo,
   StyledFlexRowThree,
   StyledFlexRowWrapper,
-  StyledPopover
+  StyledPopover,
+  StyledImageFlexRowThree,
+  StyledImageOne
 } from "../styles";
 import Typography from "@material-ui/core/Typography";
 import { Button, Popover } from "@material-ui/core";
@@ -77,6 +79,11 @@ class Eventcontainer extends Component {
               <h1>{this.props.data.title} </h1>
               <h2>{this.props.data.description} </h2>
               <p>{this.props.data.thirdDescription} </p>
+              <StyledImageFlexRowThree>
+                <StyledImageOne src="https://i.imgur.com/tz21KeX.png" />
+                <StyledImageOne src="https://i.imgur.com/U69GlR8.png" />
+                <StyledImageOne src="https://i.imgur.com/3fBE82S.png" />
+              </StyledImageFlexRowThree>
               <Button
                 onClick={this.popoverOff}
                 color="primary"
