@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import {
@@ -6,10 +6,12 @@ import {
   StyledLogoImage,
   StyledFlexRowOne,
   StyledFlexRowTwo,
-  StyledFlexRowWrapper
+  StyledFlexRowThree,
+  StyledFlexRowWrapper,
+  StyledPopover
 } from "../styles";
 import Typography from "@material-ui/core/Typography";
-import { Button } from "@material-ui/core";
+import { Button, Popover } from "@material-ui/core";
 
 const styles = theme => ({
   root: {
@@ -19,40 +21,75 @@ const styles = theme => ({
   }
 });
 
-function Eventcontainer(props) {
-  var data = {
-    title: "",
-    description: "",
-    logo: "",
-    duration: "",
-    tags: ""
+class Eventcontainer extends Component {
+  state = {
+    anchorEl: null
   };
 
-  return (
-    <div>
-      <StyledPaper elevation={1}>
-        <Typography variant="h5" component="h3" />
-        <Typography component="p">
+  popoverOn = event => {
+    this.setState({ popoverOpen: event.currentTarget });
+  };
+
+  popoverOff = event => {
+    this.setState({ popoverOpen: null });
+  };
+
+  render() {
+    const open = Boolean(this.state.popoverOpen);
+    return (
+      <div>
+        <StyledPaper elevation={1}>
+          <Typography variant="h5" component="h3" />
+          <Typography component="p">
+            <StyledFlexRowWrapper>
+              <StyledFlexRowOne>
+                <StyledLogoImage src={this.props.data.image} />
+              </StyledFlexRowOne>
+              <StyledFlexRowTwo>
+                <h1>{this.props.data.title} </h1>
+                <h2>{this.props.data.description} </h2>
+                <p>{this.props.data.moreDescription} </p>
+                <Button
+                  onClick={this.popoverOn}
+                  color="primary"
+                  style={{ width: "200px" }}
+                >
+                  Read more
+                </Button>
+              </StyledFlexRowTwo>
+              <StyledFlexRowThree>
+                <div style={{ backgroundColor: "#7ea85f" }}>
+                  <p>Skills needed</p>
+                </div>
+                <p>{this.props.data.skills[0]}</p>
+                <p>{this.props.data.skills[1]}</p>
+                <p>{this.props.data.skills[2]}</p>
+              </StyledFlexRowThree>
+            </StyledFlexRowWrapper>
+          </Typography>
+        </StyledPaper>
+        <StyledPopover open={open} anchorEl={this.state.popoverOpen}>
           <StyledFlexRowWrapper>
             <StyledFlexRowOne>
-              <h1>{props.data.title} </h1>
-              <h2>{props.data.description} </h2>
-              <h4>{props.data.description} </h4>
-              <Button style={{ width: "200px" }}>Read more</Button>
+              <StyledLogoImage src={this.props.data.image} />
             </StyledFlexRowOne>
             <StyledFlexRowTwo>
-              <div style={{ backgroundColor: "#7ea85f" }}>
-                <p>Skills needed</p>
-              </div>
-              <p>{props.data.skills}</p>
-              <p>{props.data.skills}</p>
-              <p>{props.data.skills}</p>
+              <h1>{this.props.data.title} </h1>
+              <h2>{this.props.data.description} </h2>
+              <p>{this.props.data.thirdDescription} </p>
+              <Button
+                onClick={this.popoverOff}
+                color="primary"
+                style={{ width: "200px" }}
+              >
+                Close Popover
+              </Button>
             </StyledFlexRowTwo>
           </StyledFlexRowWrapper>
-        </Typography>
-      </StyledPaper>
-    </div>
-  );
+        </StyledPopover>
+      </div>
+    );
+  }
 }
 
 Eventcontainer.propTypes = {

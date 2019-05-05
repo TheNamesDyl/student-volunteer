@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Paper } from "@material-ui/core";
+import { Paper, Popover } from "@material-ui/core";
 
 const StyledPaper = styled(Paper)`
   width: 80%;
@@ -7,17 +7,21 @@ const StyledPaper = styled(Paper)`
 `;
 
 const StyledLogoImage = styled.img`
-  height: 100px;
-  width: 100px;
+  height: 100%;
+  width: 100%;
 `;
-
 const StyledFlexRowOne = styled.div`
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 12%;
+`;
+const StyledFlexRowTwo = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 68%;
 `;
 
-const StyledFlexRowTwo = styled.div`
+const StyledFlexRowThree = styled.div`
   display: flex;
   flex-direction: column;
   background-color: #92c16f;
@@ -30,10 +34,14 @@ const StyledFlexRowWrapper = styled.div`
   flex-direction: row;
 `;
 
+const StyledPopover = styled(Popover)``;
+
 export {
   StyledPaper,
   StyledLogoImage,
   StyledFlexRowOne,
   StyledFlexRowTwo,
-  StyledFlexRowWrapper
+  StyledFlexRowThree,
+  StyledFlexRowWrapper,
+  StyledPopover
 };
